@@ -2,8 +2,8 @@
  * This class fetches external resources and inlines them into the index.html file.
  *
  * Examples:
- *    <div class="view" data-externalView="pathToYourFile.html"></div>
- *    <script type="text/template7" id="myTemplate" data-externalView="templates/myTemplate.html"></script>
+ *    <div class="view" data-externalResource="pathToYourFile.html"></div>
+ *    <script type="text/template7" id="myTemplate" data-externalResource="templates/myTemplate.html"></script>
  * 
  * When initialized, ExternalResources will fetch the source code of that page and
  * insert it into the index.html file.
@@ -19,7 +19,7 @@ class ExternalResources {
 
     static init(callback: Function) : void{
         // Look for all elements that need an external view
-        let externalViews = document.querySelectorAll('[data-externalView]');
+        let externalViews = document.querySelectorAll('[data-externalResource]');
 
         // If there are no externalViews, run the callback directly, otherwise we don't initialize F7
         if(externalViews.length === 0){
@@ -28,7 +28,7 @@ class ExternalResources {
 
         for (let i = 0; i < externalViews.length; ++i) {
             let view = externalViews[i];
-            let url = view.getAttribute('data-externalView');
+            let url = view.getAttribute('data-externalResource');
 
             // Add the Ajax request to the queue and perform asynchronously
             this.ajaxQueue[url] = Dom7.ajax(
