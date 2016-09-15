@@ -1,6 +1,8 @@
 # ExternalResources for Framework7
 ExternalResources is a small utility written in TypeScript that inlines external resources in your web application. It was created to be used with Framework7 and to put all my templates into seperate files.
 
+Inlining happens asynchronously. When ExternalResources is finished it calls your callback function where you can start initializing Framework7. 
+
 ## Usage
 Start by including it in your project:
 ```html
@@ -29,9 +31,13 @@ Now you can load anything from external files. I mostly use it to put all my tem
 
 ```html
 <!-- Templates -->
-<script type="text/template7" id="tplOverview" data-externalView="templates/overview.html"></script>
-<script type="text/template7" id="tplCard" data-externalView="templates/card.html"></script>
-<script type="text/template7" id="tplUserProfile" data-externalView="templates/userProfile.html"></script>
+<script type="text/template7" id="tplOverview" data-externalResource="templates/overview.html"></script>
+<script type="text/template7" id="tplCard" data-externalResource="templates/card.html"></script>
+<script type="text/template7" id="tplUserProfile" data-externalResource="templates/userProfile.html"></script>
 ```
 
 ## License
+MIT License, see ``LICENSE.md``.
+
+## Contributing & issue's
+Feel free to improve this little project by forking it, submitting pull requests or opening issue's.
